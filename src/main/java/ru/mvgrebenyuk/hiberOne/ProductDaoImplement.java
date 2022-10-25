@@ -45,10 +45,12 @@ public class ProductDaoImplement implements ProductDao{
     public void deleteById(Long iddd) {
         try (Session session = sessionFactoryUtils.getSession()) {
             session.beginTransaction();
+            // удаление через HQL и праметр id
             session.createQuery("delete from Product where id=:idd")
                     .setParameter("idd",iddd)
                     .executeUpdate();
             session.getTransaction().commit();
+
         }
     }
 
