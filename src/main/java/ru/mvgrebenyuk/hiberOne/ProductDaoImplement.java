@@ -6,10 +6,27 @@ import java.util.List;
 
 public class ProductDaoImplement implements ProductDao{
 
+    public void init()
+    {
+
+    }
+
+    public ProductDaoImplement() {
+    }
+
     private SessionFactoryUtils sessionFactoryUtils;
 
     public ProductDaoImplement(SessionFactoryUtils sessionFactoryUtils) {
         this.sessionFactoryUtils = sessionFactoryUtils;
+    }
+
+    public String findCostumerById (Long id)
+    {
+        Session session=sessionFactoryUtils.getSession();
+        session.beginTransaction();
+        Product product = session.get(Product.class,id);
+        String costumer=product.getCostumer().getName_cust();
+        return costumer;
     }
 
     @Override
@@ -50,7 +67,6 @@ public class ProductDaoImplement implements ProductDao{
                     .setParameter("idd",iddd)
                     .executeUpdate();
             session.getTransaction().commit();
-
         }
     }
 
