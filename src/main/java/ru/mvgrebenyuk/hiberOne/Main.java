@@ -15,7 +15,7 @@ public class Main {
         try {
             CostumerDaoImplements costumerDaoImplements = new CostumerDaoImplements(sessionFactoryUtils);
             ProductDaoImplement productDaoImplement=new ProductDaoImplement(sessionFactoryUtils);
-            // поиск покупателя по ID через Dao 23
+            // поиск покупателя по ID через Dao 234
             System.out.println(costumerDaoImplements.findById(1L));
             // поиск покупателя по ID через Dao
             System.out.println(costumerDaoImplements.findByNane("Jack"));
